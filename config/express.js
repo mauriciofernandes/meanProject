@@ -1,5 +1,5 @@
 var express = require('express');
-var home = require('./app/routes/home');
+var home = require('../app/routes/home');
 
 module.exports = function() {
   var app = express();
