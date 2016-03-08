@@ -1,5 +1,6 @@
 var express = require('express'),
-    home = require('../app/routes/home'),
+    //home = require('../app/routes/home'),
+    bodyParser = require('body-parser');
     load = require('express-load');
 
 module.exports = function() {
@@ -10,6 +11,9 @@ module.exports = function() {
 
   // middleware
   app.use(express.static('./public'));
+  app.use(bodyParser.urlencoded({extended: true}));
+  app.use(bodyParser.json());
+  app.use(require('method-override')());
 
   app.set('view engine', 'ejs');
   app.set('views','./app/views');
