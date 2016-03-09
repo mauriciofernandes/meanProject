@@ -9,4 +9,7 @@ angular.module('contatooh', ['ngRoute'])
     templateUrl: 'partials/contato.html',
     controller: 'ContatoController'
   });
+
+  // if the route not exist
+  $routeProvider.otherwise({redirectTo: '/contatos'});
 });
