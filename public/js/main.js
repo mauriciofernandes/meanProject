@@ -1,5 +1,6 @@
-angular.module('contatooh', ['ngRoute'])
+angular.module('contatooh', ['ngRoute', 'ngResource'])
 .config(function($routeProvider){
+
   $routeProvider.when('/contatos', {
     templateUrl: 'partials/contatos.html',
     controller: 'ContatosController'
@@ -10,6 +11,6 @@ angular.module('contatooh', ['ngRoute'])
     controller: 'ContatoController'
   });
 
-  // if the route not exist
+  // if the route doesn't exist
   $routeProvider.otherwise({redirectTo: '/contatos'});
 });
