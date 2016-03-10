@@ -13,12 +13,12 @@
       <th>Email</th>
       <th class="text-center">Ação</th>
     </tr>
-    <tr>
+    <tr ng-repeat="contato in contatos">
       <td>
-        <a>Contato</a>
+        <a>{{contato.nome}}</a>
       </td>
-      <td>contato@empresa.com.br</td>
-      <td>
+      <td>{{contato.email}}</td>
+      <td class="text-center">
         <button type="button" class="btn btn-warning">Remover</button>
       </td>
     </tr>
