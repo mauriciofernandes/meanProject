@@ -4,6 +4,8 @@ var contatos = [
   {_id: 3, nome: 'Sicrano Beltrano', email: 'sicrano@empresa.com.br'}
 ];
 
+var ID_CONTATO_INC = 3;
+
 module.exports = function(app) {
   var controller = app.controllers.contato;
   controller.listaContatos = function(req, res){
@@ -25,6 +27,28 @@ module.exports = function(app) {
     });
     res.sendStatus(204).end();
     console.log('API: removeContato: ' + idContato);
+  };
+
+  controller.salvaContato = function(req, res){
+    var contato = req.body;
+    contato = contato._id ? atualiza(contato) : adiciona(contato);
+    res.json(contato);
+  };
+
+  function adiciona(contatoNovo){
+    contatoNovo._id = ++ID_CONTATO_INC;
+    contato.push(contatoNovo);
+    return contatoNovo;
+  };
+
+  function atualiza(contatoAlterar){
+    contatos = contatos.map(function(contato){
+      if (contato._id == contatoAlterar._id) {
+        contato = contatoAlterar;
+      }
+      return contato;
+    });
+    return contatoAlterar;
   };
 
   app.route('/contatos/:id')
