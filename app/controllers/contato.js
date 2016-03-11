@@ -37,7 +37,7 @@ module.exports = function(app) {
 
   function adiciona(contatoNovo){
     contatoNovo._id = ++ID_CONTATO_INC;
-    contato.push(contatoNovo);
+    contatos.push(contatoNovo);
     return contatoNovo;
   };
 

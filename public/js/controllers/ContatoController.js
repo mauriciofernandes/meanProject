@@ -1,7 +1,6 @@
 angular.module('contatooh').controller('ContatoController',
   function($scope, $routeParams, $resource) {
     var Contato = $resource('/contatos/:id');
-    $scope.contato = new Contato();
 
     if($routeParams.contatoId){
       Contato.get({id: $routeParams.contatoId},
@@ -17,6 +16,7 @@ angular.module('contatooh').controller('ContatoController',
       $scope.contato = {};
     };
 
+    $scope.contato = new Contato();
     $scope.salva = function(){
       $scope.contato.$save()
       .then(function(){
